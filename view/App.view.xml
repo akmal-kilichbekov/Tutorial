@@ -1,0 +1,9 @@
+<mvc:View
+  controllerName="rroot.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   displayBlock="true" >
+   <Shell>
+       <App class="myAppTutor" id="routingApp" />      
+  </Shell>
+</mvc:View>

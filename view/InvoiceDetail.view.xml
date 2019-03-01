@@ -1,0 +1,11 @@
+<mvc:View
+	controllerName="rroot.controller.InvoiceDetail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page
+		title="{i18n>detailPageTitle}">
+		<ObjectHeader
+			intro="{invoiceOData>ShipperName}"
+			title="{invoiceOData>ProductName}"/>
+	</Page>
+</mvc:View>

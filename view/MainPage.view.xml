@@ -1,0 +1,20 @@
+<mvc:View
+  controllerName="rroot.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   displayBlock="true" >
+        <Page title="{i18n>homePageTitle}"
+         showNavButton="true"
+         navButtonPress="onNavBack">
+        <headerContent>               
+            <Button icon="sap-icon://hello-world"
+                press=".openDialog"    
+            />
+        </headerContent>
+        <content>
+            <mvc:XMLView viewName="rroot.view.AuthorData" />
+            <mvc:XMLView viewName="rroot.view.Tools"/>
+            <mvc:XMLView viewName="rroot.view.InvoiceList"/>       
+        </content>           
+        </Page>
+</mvc:View>

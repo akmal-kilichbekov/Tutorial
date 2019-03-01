@@ -1,0 +1,48 @@
+{
+    "Customers": [{
+            "CustomerID": "ALFKI",
+            "CompanyName": "Alfreds Futterkiste",
+            "ContactName": "Maria Anders",
+            "ContactTitle": "Sales Representative",
+            "Address": "Obere Str. 57",
+            "City": "Berlin",
+            "Country": "Germany"
+        },
+        {
+            "CustomerID": "ALFKG",
+            "CompanyName": "Alfreds Futterkiste",
+            "ContactName": "Maria Anders",
+            "ContactTitle": "Sales Representative",
+            "Address": "Obere Str. 57",
+            "City": "Berlin",
+            "Country": "Germany"
+        },
+        {
+            "CustomerID": "ALFKJ",
+            "CompanyName": "Alfreds Futterkiste",
+            "ContactName": "Maria Anders",
+            "ContactTitle": "Sales Representative",
+            "Address": "Obere Str. 57",
+            "City": "Berlin",
+            "Country": "Germany"
+        },
+        {
+            "CustomerID": "ALFKH",
+            "CompanyName": "Alfreds Futterkiste",
+            "ContactName": "Maria Anders",
+            "ContactTitle": "Sales Representative",
+            "Address": "Obere Str. 57",
+            "City": "Berlin",
+            "Country": "Germany"
+        },
+        {
+            "CustomerID": "ALFKF",
+            "CompanyName": "Alfreds Futterkiste",
+            "ContactName": "Maria Anders",
+            "ContactTitle": "Sales Representative",
+            "Address": "Obere Str. 57",
+            "City": "Berlin",
+            "Country": "Germany"
+        }
+    ]
+}

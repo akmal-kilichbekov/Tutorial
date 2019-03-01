@@ -1,0 +1,117 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "rroot",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "ach": "CA-UI5-DOC",
+        "dataSources": {
+            "oDataRemote": {
+                "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "rroot.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "rroot.i18n.i18n"
+                }
+            },
+
+            "invoice": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "jsonFiles/Invoices.json"
+            },
+
+            "authorData": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "jsonFiles/Author.json"
+            },
+
+            "constants": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "jsonFiles/Constants.json"
+            },
+
+            "customer": {
+                "dataSource": "oDataRemote"
+            }
+        },
+        "resources": {
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "rroot.view",
+                "controlId": "routingApp",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [{
+                    "pattern": "",
+                    "name": "main",
+                    "target": "main"
+                },
+                {
+                    "pattern": "customer",
+                    "name": "customer",
+                    "target": "customer"
+                },
+                {
+                    "pattern": "detail/{invoicePath}",
+                    "name": "detail",
+                    "target": "detail"
+                }
+            ],
+            "targets": {
+                "main": {
+                    "viewId": "main",
+                    "viewName": "MainPage"
+                },
+                "customer": {
+                    "viewId": "customer",
+                    "viewName": "CustomerList"
+                },
+                "detail": {
+                    "viewId": "detail",
+                    "viewName": "InvoiceDetail"
+                }
+            }
+        }
+    }
+}
