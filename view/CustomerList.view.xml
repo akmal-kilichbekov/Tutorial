@@ -1,66 +1,69 @@
-<mvc:View	
-	xmlns="sap.ui.table"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:u="sap.ui.unified"
-	xmlns:c="sap.ui.core"
-	xmlns:m="sap.m"
-    height="100%">
-	<m:Page
-		showHeader="false"
-		enableScrolling="false"
-		class="sapUiContentPadding">
-		<m:content>
-			<Table
-				rows="{customer>/Customers}"
-				title="Products"
-				selectionMode="MultiToggle"
-				visibleRowCount="20"
-				paste="onPaste">
-				<columns>
-					<Column width="11rem">
-						<m:Label text="Company Name" />
-						<template>
-							<m:Text text="{customer>CompanyName}" wrapping="false" />
-						</template>
-					</Column>	
-                    <Column width="11rem">
-						<m:Label text="Contact Name" />
-						<template>
-							<m:Text text="{customer>ContactName}" wrapping="false" />
-						</template>
-					</Column>	
-                   <Column width="11rem">
-						<m:Label text="Contact Title" />
-						<template>
-							<m:Text text="{customer>ContactTitle}" wrapping="false" />
-						</template>
-					</Column>
-                    <Column width="11rem">
-						<m:Label text="Address" />
-						<template>
-							<m:Text text="{customer>Address}" wrapping="false" />
-						</template>
-					</Column>
-                    <Column width="11rem">
-						<m:Label text="City" />
-						<template>
-							<m:Text text="{customer>City}" wrapping="false" />
-						</template>
-					</Column>	
-					<Column width="11rem">
-						<m:Label text="Region" />
-						<template>
-							<m:Text text="{customer>Region}" wrapping="false" />
-						</template>
-					</Column>
-					<Column width="11rem">
-						<m:Label text="Country" />
-						<template>
-							<m:Text text="{customer>Country}" wrapping="false" />
-						</template>
-					</Column>		
-				</columns>
-			</Table>
-		</m:content>
-	</m:Page>	
+<mvc:View
+      	xmlns:mvc="sap.ui.core.mvc"
+	    xmlns:core="sap.ui.core"
+	    xmlns="sap.m">
+	<Table
+		id="cutomerList"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		items="{
+			path : 'customer>/Customers',
+			sorter : {
+				path : 'City',
+				group : true
+			}
+		}">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>customerList}"/>
+				<ToolbarSpacer/>
+				<SearchField width="50%" search="onFilterInvoices"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+			    minScreenWidth="Small"
+				demandPopin="true"
+				width="12em">
+				<Text text="{i18n>customerID}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>customerCompany}"/>
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>customerContact}"/>
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="false">
+				<Text text="{i18n>customerTitle}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>customerCity}"/>
+			</Column>
+			<Column
+				hAlign="End">
+				<Text text="{i18n>contactDetails}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press="onPress">
+				<cells>
+					<Text text="{customer>CustomerID}"/>
+					<Text text="{customer>CompanyName}"/>
+                    <Text text="{customer>ContactName}"/>
+					<Text text="{customer>ContactTitle}"/>
+					<Text text="{customer>City}"/>
+					<ObjectNumber
+						number="{
+							parts:[{path:'customer>Phone'},{path:'customer>Fax'}]							
+						}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
 </mvc:View>
